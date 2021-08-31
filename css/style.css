@@ -1,0 +1,467 @@
+@font-face {
+  font-family: "Muller";
+  src: local("Muller-Regular"),
+    url("../fonts/MullerRegular.woff2") format("woff2"),
+    url("../fonts/MullerRegular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Muller";
+  src: local("Muller-Bold"), url("../fonts/MullerBold.woff2") format("woff2"),
+    url("../fonts/MullerBold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Muller";
+  src: local("Muller-Medium"),
+    url("../fonts/MullerMedium.woff2") format("woff2"),
+    url("../fonts/MullerMedium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Muller", sans-serif;
+}
+
+body {
+  background: #f1f1f1;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  max-width: 1170px;
+  margin: 0 auto;
+}
+
+.menu {
+  height: 114px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-left {
+  display: flex;
+  align-items: center;
+}
+
+.menu-left-logo {
+  margin-right: 40px;
+}
+
+.menu-left-phone {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 20px;
+  color: #666666;
+}
+
+.background {
+  background-repeat: no-repeat;
+}
+
+.menu-auth {
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 16px;
+  color: #cc9933;
+  background-image: url("../img/keyboard_tab.svg");
+  background-position: left center;
+  background-size: 24px 24px;
+  padding-left: 31px;
+}
+
+.navigation {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 15px;
+  padding: 0 45px;
+}
+
+.navigation-list {
+  display: flex;
+  align-items: center;
+  margin-right: 56px;
+  border-right: 1px solid #e1e1e1;
+  height: 50px;
+}
+
+.navigation-item:not(:last-child) {
+  margin-right: 45px;
+}
+
+.navigation-item:last-child {
+  padding-right: 56px;
+}
+
+.navigation-link {
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 16px;
+  color: #666666;
+  white-space: nowrap;
+}
+
+.navigation-btns {
+  white-space: nowrap;
+}
+
+.button {
+  padding: 13px 20px;
+  border: 1px solid #cc9933;
+  border-radius: 10px;
+  background-color: inherit;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 16px;
+  color: #cc9933;
+}
+
+.navigation-btn:first-child {
+  margin-right: 40px;
+}
+
+.header,
+.about,
+.offers,
+.services,
+.advantages {
+  margin-bottom: 70px;
+}
+
+.heading {
+  margin-bottom: 40px;
+  text-indent: 42px;
+  font-weight: normal;
+  font-size: 40px;
+  line-height: 40px;
+  color: #333333;
+}
+
+.special {
+  margin-bottom: 20px;
+}
+
+.about-heading {
+  margin-bottom: 11px;
+}
+
+.tours {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tour {
+  margin-bottom: 23px;
+  padding: 40px 40px;
+  border-radius: 15px;
+}
+
+.tours-left .tour:first-child {
+  background-image: url(../img/offers/maldives.jpg);
+  background-position: center;
+}
+
+.tours-left .tour:nth-child(2) {
+  background-image: url(../img/offers/crit.jpg);
+  background-size: 100% 100%;
+  background-position: center;
+}
+
+.tour-right .tour {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  background-image: url(../img/offers/lux.jpg);
+  background-size: 100% 100%;
+  background-position: center;
+}
+
+.tours-left .tour:last-child,
+.tour-right .tour {
+  margin-bottom: 0;
+}
+
+.tours-left {
+  margin-right: 23px;
+}
+
+.tours-left,
+.tour-right {
+  width: 573px;
+}
+
+.tour-name {
+  max-width: 299px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  font-size: 40px;
+  line-height: 40px;
+  color: #ffffff;
+}
+
+.tour-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.tour-price {
+  margin-bottom: 47px;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 20px;
+  color: #ffffff;
+  opacity: 0.8;
+}
+
+.tour-info {
+  width: 102px;
+  padding-right: 11px;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 16px;
+  color: #ffcc66;
+  background-image: url(../img/arrow.svg);
+  background-position: right center;
+}
+
+.tour-right .tour-name {
+  font-weight: bold;
+  font-size: 60px;
+  line-height: 60px;
+  color: #ffffff;
+}
+
+.tour-right .tour-price {
+  font-size: 30px;
+  line-height: 30px;
+}
+
+.text {
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 200%;
+  color: #000000;
+}
+
+.about-text {
+  max-width: 888px;
+  margin-bottom: 0;
+}
+
+.service-heading {
+  margin-bottom: 20px;
+}
+
+.service_first {
+  background-image: url("../img/services/service_one.jpg");
+}
+
+.service_second {
+  background-image: url("../img/services/service_two.jpg");
+}
+
+.service_third {
+  background-image: url("../img/services/service_three.jpg");
+}
+
+.service_four {
+  background-image: url("../img/services/service_four.jpg");
+}
+
+.service-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.service-list .service-item {
+  width: 573px;
+  margin: 0px 23px 23px 0;
+  padding: 191px 45px 50px 45px;
+  background-color: #ffffff;
+  background-size: 100% 165px;
+  background-position: center top;
+  border-radius: 15px;
+}
+
+.service-list .service-item:nth-child(2n) {
+  margin-right: 0;
+}
+
+.service-link {
+  display: inline-block;
+  padding-right: 20px;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 200%;
+  color: #cc9933;
+  background-image: url(../img/arrow.svg);
+  background-position: right center;
+}
+
+.service-item .text {
+  max-width: 402px;
+}
+
+.advantages-heading,
+.hotels-heading {
+  margin-bottom: 30px;
+}
+
+.advantages-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.advantages-item {
+  width: 275px;
+  margin: 0px 23px 23px 0;
+  padding: 41px 45px;
+  background-color: white;
+  border-radius: 15px;
+}
+
+.advantages-item .text {
+  padding-top: 76px;
+  background-position: top left;
+}
+
+.advantages-first {
+  background-image: url("../img/advantages/bathtub.svg");
+}
+
+.advantages-second {
+  background-image: url("../img/advantages/hanger.svg");
+}
+
+.advantages-third {
+  background-image: url("../img/advantages/heating.svg");
+}
+
+.advantages-fourth {
+  background-image: url("../img/advantages/hotel-key.svg");
+}
+
+.advantages-fiveth {
+  background-image: url("../img/advantages/parking.svg");
+}
+
+.advantages-sixth {
+  background-image: url("../img/advantages/reception.svg");
+}
+
+.advantages-seventh {
+  background-image: url("../img/advantages/security-box.svg");
+}
+
+.advantages-eight {
+  background-image: url("../img/advantages/swimming-pool.svg");
+}
+
+.advantages-list .advantages-item:nth-child(4n) {
+  margin-right: 0;
+}
+
+.hotels-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.hotels-item {
+  width: 374px;
+  margin-right: 23px;
+  margin-bottom: 23px;
+  background-color: #ffffff;
+  border-radius: 15px;
+}
+
+.hotels-item:last-child {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 27px 39px 27px 54px;
+  background-image: url("../img/hotels/9.jpg");
+  background-size: cover;
+  background-position: center center;
+}
+
+.hotels-item img {
+  border-radius: 15px 15px 0 0;
+}
+
+.hotel-info {
+  padding: 36px 45px 41px;
+}
+
+.hotel-info-rating {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hotel-info-rating {
+  margin-bottom: 16px;
+}
+
+.hotel-info-rating .text {
+  line-height: 100%;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.hotel-info-rating .price {
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.description-text {
+  margin-bottom: 16px;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 16px;
+  color: #000000;
+}
+
+.description .place {
+  margin-bottom: 20px;
+}
+
+.hotels-list .hotels-item:nth-child(3n) {
+  margin-right: 0;
+}
+
+.text-gray {
+  color: gray;
+}
+
+.more-hotels {
+  padding-right: 20px;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 200%;
+  color: #ffffff;
+  background-image: url(../img/white_arrow.svg);
+  background-position: right center;
+}
