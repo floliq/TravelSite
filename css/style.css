@@ -47,6 +47,15 @@ ul {
   list-style: none;
 }
 
+:root {
+  --hover-focus: #cc9933;
+  --hover: #e9c479;
+  --active: #a47312;
+  --radius: 15px;
+  --text-size: 16px;
+  --weight: normal;
+}
+
 .container {
   max-width: 1170px;
   margin: 0 auto;
@@ -73,6 +82,23 @@ ul {
   font-size: 20px;
   line-height: 20px;
   color: #666666;
+  transition-property: color, outline, outline-color;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+
+.menu-left-phone:hover {
+  color: var(--hover-focus);
+}
+
+.menu-left-phone:focus {
+  outline-color: var(--hover-focus);
+  color: var(--hover-focus);
+  outline-offset: 5px; /* ИЛИ ЛУЧШЕ line-heigth? тк это свойство не поддерживается в Internet Explorer*/
+}
+
+.menu-left-phone:active {
+  color: var(--active);
 }
 
 .background {
@@ -80,14 +106,41 @@ ul {
 }
 
 .menu-auth {
-  font-weight: normal;
-  font-size: 16px;
+  display: flex;
+  align-items: center;
+  font-weight: var(--weight);
+  font-size: var(--text-size);
   line-height: 16px;
-  color: #cc9933;
-  background-image: url("../img/keyboard_tab.svg");
-  background-position: left center;
-  background-size: 24px 24px;
-  padding-left: 31px;
+  color: var(--hover-focus);
+  transition-property: color, outline, outline-color;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+
+.menu-auth:hover {
+  color: var(--hover);
+}
+
+.menu-auth:focus {
+  outline-color: var(--hover-focus);
+  outline-offset: 5px;
+  color: var(--hover-focus);
+}
+
+.menu-auth:active {
+  color: var(--active);
+}
+
+.menu-auth-tab {
+  margin-right: 5px;
+}
+
+.menu-auth-tab path {
+  transition: fill 0.3s ease;
+}
+
+.menu-auth:hover .menu-auth-tab path {
+  fill: var(--hover);
 }
 
 .navigation {
@@ -95,7 +148,7 @@ ul {
   display: flex;
   align-items: center;
   background-color: #ffffff;
-  border-radius: 15px;
+  border-radius: var(--radius);
   padding: 0 45px;
 }
 
@@ -116,11 +169,28 @@ ul {
 }
 
 .navigation-link {
-  font-weight: normal;
-  font-size: 16px;
+  font-weight: var(--weight);
+  font-size: var(--text-size);
   line-height: 16px;
   color: #666666;
   white-space: nowrap;
+  transition-property: color, outline, outline-color;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+
+.navigation-link:focus {
+  outline-color: var(--hover-focus);
+  color: var(--hover-focus);
+  outline-offset: 5px;
+}
+
+.navigation-link:hover {
+  color: var(--hover-focus);
+}
+
+.navigation-link:active {
+  color: var(--active);
 }
 
 .navigation-btns {
@@ -129,13 +199,30 @@ ul {
 
 .button {
   padding: 13px 20px;
-  border: 1px solid #cc9933;
+  border: 1px solid var(--hover-focus);
   border-radius: 10px;
   background-color: inherit;
-  font-weight: normal;
-  font-size: 16px;
+  font-weight: var(--weight);
+  font-size: var(--text-size);
   line-height: 16px;
-  color: #cc9933;
+  color: var(--hover-focus);
+  transition-property: background-color, color;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+  cursor: pointer;
+}
+
+.button:focus,
+.button:hover {
+  background-color: var(--hover-focus);
+  color: white;
+  outline: none;
+}
+
+.button:active {
+  background-color: var(--active);
+  color: white;
+  outline: none;
 }
 
 .navigation-btn:first-child {
@@ -145,15 +232,20 @@ ul {
 .header,
 .about,
 .offers,
-.services,
-.advantages {
+.buy-tour {
   margin-bottom: 70px;
+}
+
+.services,
+.advantages,
+.hotels {
+  margin-bottom: 50px;
 }
 
 .heading {
   margin-bottom: 40px;
   text-indent: 42px;
-  font-weight: normal;
+  font-weight: var(--weight);
   font-size: 40px;
   line-height: 40px;
   color: #333333;
@@ -173,9 +265,16 @@ ul {
 }
 
 .tour {
+  position: relative;
   margin-bottom: 23px;
   padding: 40px 40px;
-  border-radius: 15px;
+  border-radius: var(--radius);
+  transition: outline 0.3s ease;
+}
+
+.tour:focus-within {
+  outline: 1px solid var(--hover-focus);
+  outline-offset: 8px;
 }
 
 .tours-left .tour:first-child {
@@ -229,7 +328,7 @@ ul {
 
 .tour-price {
   margin-bottom: 47px;
-  font-weight: normal;
+  font-weight: var(--weight);
   font-size: 20px;
   line-height: 20px;
   color: #ffffff;
@@ -239,12 +338,33 @@ ul {
 .tour-info {
   width: 102px;
   padding-right: 11px;
-  font-weight: normal;
-  font-size: 16px;
+  font-weight: var(--weight);
+  font-size: var(--text-size);
   line-height: 16px;
   color: #ffcc66;
   background-image: url(../img/arrow.svg);
   background-position: right center;
+  transition-property: color;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+
+.tour-info::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius);
+}
+
+.tour-info:focus {
+  outline: none;
+}
+
+.tour-info:active {
+  color: white;
 }
 
 .tour-right .tour-name {
@@ -260,8 +380,8 @@ ul {
 }
 
 .text {
-  font-weight: normal;
-  font-size: 16px;
+  font-weight: var(--weight);
+  font-size: var(--text-size);
   line-height: 200%;
   color: #000000;
 }
@@ -296,14 +416,21 @@ ul {
   flex-wrap: wrap;
 }
 
-.service-list .service-item {
+.service-item {
+  position: relative;
   width: 573px;
   margin: 0px 23px 23px 0;
   padding: 191px 45px 50px 45px;
   background-color: #ffffff;
   background-size: 100% 165px;
   background-position: center top;
-  border-radius: 15px;
+  border-radius: var(--radius);
+  transition: outline 0.3s ease;
+}
+
+.service-item:focus-within {
+  outline: 1px solid var(--hover-focus);
+  outline-offset: 8px;
 }
 
 .service-list .service-item:nth-child(2n) {
@@ -311,14 +438,50 @@ ul {
 }
 
 .service-link {
-  display: inline-block;
+  display: flex;
+  align-items: center;
   padding-right: 20px;
   font-weight: 500;
   font-size: 20px;
   line-height: 200%;
-  color: #cc9933;
-  background-image: url(../img/arrow.svg);
-  background-position: right center;
+  color: var(--hover-focus);
+  transition-property: color, outline-color;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+
+.service-link span {
+  margin-right: 6px;
+}
+
+.service-link::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: var(--radius);
+}
+
+.service-link:focus {
+  outline: none;
+}
+
+.service-link:hover {
+  color: var(--hover);
+}
+
+.service-link:active {
+  color: var(--active);
+}
+
+.service-link-arrow path {
+  transition: stroke 0.3s ease;
+}
+
+.service-link:hover .service-link-arrow path {
+  stroke: var(--hover);
 }
 
 .service-item .text {
@@ -340,7 +503,7 @@ ul {
   margin: 0px 23px 23px 0;
   padding: 41px 45px;
   background-color: white;
-  border-radius: 15px;
+  border-radius: var(--radius);
 }
 
 .advantages-item .text {
@@ -394,20 +557,22 @@ ul {
   margin-right: 23px;
   margin-bottom: 23px;
   background-color: #ffffff;
-  border-radius: 15px;
+  border-radius: var(--radius);
 }
 
-.hotels-item:last-child {
+.hotels-item.background {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: flex-end;
+  /* height: 448px; ОПАСНО, НО РАБОТАЕТ */
   padding: 27px 39px 27px 54px;
   background-image: url("../img/hotels/9.jpg");
   background-size: cover;
   background-position: center center;
 }
 
-.hotels-item img {
+.hotels-item .hotel-image {
   border-radius: 15px 15px 0 0;
 }
 
@@ -428,7 +593,7 @@ ul {
 .hotel-info-rating .text {
   line-height: 100%;
   font-weight: 400;
-  font-size: 16px;
+  font-size: var(--text-size);
 }
 
 .hotel-info-rating .price {
@@ -438,8 +603,8 @@ ul {
 
 .description-text {
   margin-bottom: 16px;
-  font-weight: normal;
-  font-size: 16px;
+  font-weight: var(--weight);
+  font-size: var(--text-size);
   line-height: 16px;
   color: #000000;
 }
@@ -464,4 +629,251 @@ ul {
   color: #ffffff;
   background-image: url(../img/white_arrow.svg);
   background-position: right center;
+}
+
+.more-hotels::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+}
+
+.buy-tour-container {
+  padding: 38px 45px 71px;
+  background-color: #e9e9e9;
+  border-radius: var(--radius);
+}
+
+.buy-tour-heading {
+  margin-bottom: 19px;
+}
+
+.buy-tour-form {
+  display: flex;
+  padding: 31px 28px 32px;
+  background-color: #ffffff;
+  border-radius: var(--radius);
+}
+
+.buy-tour-info {
+  display: flex;
+  flex-direction: column;
+  padding-right: 20px;
+  border-right: 1px solid #e1e1e1;
+}
+
+.buy-tour-info:not(:last-child) {
+  margin-right: 20px;
+}
+
+.buy-tour-info:nth-child(5) {
+  padding-right: 30px;
+}
+
+.buy-tour-label {
+  margin-bottom: 15px;
+  font-size: 12px;
+  line-height: 12px;
+  color: #000000;
+}
+
+.buy-tour-select {
+  width: 169px;
+  height: 19px;
+  font-size: var(--text-size);
+  color: #000000;
+  border: none;
+  outline: none;
+}
+
+.buy-tour-input {
+  width: 115px;
+  height: 17px;
+  font-size: var(--text-size);
+  color: #000000;
+  border: none;
+  outline: none;
+}
+
+.buy-tour-date {
+  width: 133px;
+}
+
+.buy-tour-number {
+  border-bottom: 1px solid #ccc;
+}
+
+.buy-tour-btn {
+  padding: 13px 30px;
+}
+
+.сontacts-heading {
+  margin-bottom: 26px;
+}
+
+.contacts-info {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 44px 44px 46px;
+  background: #ffffff;
+  border-radius: var(--radius);
+}
+
+.contacts-info-heading {
+  width: 98px;
+  margin-right: 47px;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 20px;
+  color: #000000;
+}
+
+.contacts-info-desc {
+  display: flex;
+  width: 375px;
+  margin-right: 50px;
+  padding-bottom: 23px;
+  border-bottom: 1px solid #c4c4c4;
+}
+
+.contacts-info-desc:not(:last-child) {
+  margin-bottom: 25px;
+}
+
+.contacts-desc-text {
+  font-size: var(--text-size);
+  line-height: 150%;
+  color: #000000;
+}
+
+.contacts-info-desc:nth-child(4) {
+  margin-bottom: 45px;
+}
+
+.link {
+  display: inline-block;
+  width: fit-content;
+  font-size: var(--text-size);
+  line-height: 150%;
+  color: var(--hover-focus);
+  transition-property: color, outline, outline-color;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+
+.link:focus {
+  outline-color: var(--hover-focus);
+}
+
+.link:hover {
+  color: var(--hover);
+}
+
+.link:active {
+  color: var(--active);
+}
+
+.contacts-button {
+  display: inline-block;
+  padding: 27px 29px;
+  font-weight: bold;
+}
+
+.desc-text {
+  color: #999999;
+}
+
+.mail-info {
+  margin-bottom: 3px;
+}
+
+.contacts-image {
+  border-radius: 10px;
+}
+
+.contacts {
+  margin-bottom: 19px;
+}
+
+.footer-container {
+  background: #333333;
+  border-radius: var(--radius);
+}
+
+.footer-content {
+  display: flex;
+  padding: 51px 51px 46px;
+  background-image: url("../img/bg-footer.svg");
+  background-repeat: no-repeat;
+  background-position: right 176px bottom 0;
+}
+
+.footer-left {
+  width: 320px;
+  margin-right: 102px;
+}
+
+.footer-text {
+  font-size: var(--text-size);
+  line-height: 190%;
+  color: #ffffff;
+  font-weight: var(--weight);
+}
+
+.footer-left .footer-text:first-child {
+  margin-bottom: 45px;
+}
+
+.footer-left .footer-text:nth-child(2) {
+  margin-bottom: 49px;
+}
+
+.footer-contacts {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-center {
+  margin-right: 260px;
+}
+
+.footer-center .footer-text {
+  margin-bottom: 14px;
+  line-height: 100%;
+}
+
+.footer-phone {
+  margin-bottom: 15px;
+}
+
+.footer-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.social-link {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  outline: none;
+}
+
+.background-social {
+  transition: fill 0.3s ease;
+}
+
+.social-link:focus .background-social,
+.social-link:hover .background-social {
+  fill: var(--hover-focus);
+}
+
+.social-link:active .background-social {
+  fill: var(--active);
+}
+
+.social-link:not(:last-child) {
+  margin-bottom: 20px;
 }
